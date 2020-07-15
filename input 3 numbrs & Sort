@@ -1,0 +1,41 @@
+
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args) //takes 3 numbers from Console and print them by size
+        {
+            int Fnumber, Snumber, Tnumber;
+            Console.WriteLine("Enter Two numbers");
+            bool FSuccess = int.TryParse(Console.ReadLine(), out Fnumber);
+            bool SSuccess = int.TryParse(Console.ReadLine(), out Snumber);
+            bool TSuccess = int.TryParse(Console.ReadLine(), out Tnumber);
+            if (FSuccess && SSuccess && TSuccess)
+            {
+                if (Fnumber < Snumber)
+                {
+                    int middle = Fnumber;
+                    Fnumber = Snumber;
+                    Snumber = middle;
+                }
+                if (Fnumber < Tnumber)
+                {
+                    int middle = Fnumber;
+                    Fnumber = Tnumber;
+                    Tnumber = middle;
+                }
+                if (Snumber < Tnumber)
+                {
+                    int middle = Snumber;
+                    Snumber = Tnumber;
+                    Tnumber = middle;
+                }
+                Console.WriteLine(Fnumber + ", " + Snumber + ", " + Tnumber);
+            }
+            else
+                Console.WriteLine("You didn't enter a numbers");
+        }
+    }
+}
