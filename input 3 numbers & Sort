@@ -1,0 +1,40 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Fnumber, Snumber, Tnumber;
+            Console.WriteLine("Enter Two numbers");
+            bool FSuccess = int.TryParse(Console.ReadLine(), out Fnumber);
+            bool SSuccess = int.TryParse(Console.ReadLine(), out Snumber);
+            bool TSuccess = int.TryParse(Console.ReadLine(), out Tnumber);
+            if (FSuccess && SSuccess && TSuccess)
+            {
+                if (Fnumber < Snumber) //if First < second Swap
+                {
+                    int middle = Fnumber;
+                    Fnumber = Snumber;
+                    Snumber = middle;
+                }
+                if (Fnumber < Tnumber) //if First < Third Swap
+                {
+                    int middle = Fnumber;
+                    Fnumber = Tnumber;
+                    Tnumber = middle;
+                }
+                if (Snumber < Tnumber) //if Second < Third Swap
+                {
+                    int middle = Snumber;
+                    Snumber = Tnumber;
+                    Tnumber = middle;
+                }
+                Console.WriteLine(Fnumber + ", " + Snumber + ", " + Tnumber);
+            }
+            else
+                Console.WriteLine("You didn't enter a numbers");
+        }
+    }
+}
